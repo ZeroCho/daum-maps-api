@@ -27,6 +27,25 @@ if (Meteor.isClient) {
   });
 }
 ```
+OR
+```js
+Template.CUSTOM_NAME.onCreated(function () {
+  DaumMaps.load('<YOUR API KEY>');
+});
+```
+
+## Usage
+```js
+Template.CUSTOM_NAME.onRendered(function() {
+  this.autorun(function () {
+    if (DaumMaps.loaded()) {
+      // true or false, is reactive
+      new daum.maps.Map(...);
+    }
+  });
+});
+```
+
 ## Official API Document / 공식 API 설명서
 [Daum Maps API DOC](http://apis.map.daum.net/web/guide/)
 
